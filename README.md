@@ -1,2 +1,3 @@
-# fractal-playground
-Fractals!
+# Fractal Playground
+
+\o/
