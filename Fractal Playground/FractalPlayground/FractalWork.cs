@@ -8,6 +8,6 @@ namespace FractalPlayground
 		public delegate void Callback(ulong size, int[] characters);
 
 		[DllImport("Fractal Work.dll")]
-		public static extern void SetFinishedCallback([MarshalAs(UnmanagedType.FunctionPtr)]Callback callback);
+		public static extern void SetFinishedCallback(Callback callback);
 	}
 }

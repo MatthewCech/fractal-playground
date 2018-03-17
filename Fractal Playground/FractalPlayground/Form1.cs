@@ -12,9 +12,9 @@ namespace FractalPlayground
 {
 	public partial class Form1 : Form
 	{
-		public static void Callback(ulong size, int[] characters)
+		public void Callback(ulong size, int[] characters)
 		{
-			Console.WriteLine("Yeah!");
+			Text = "what is this???????";
 		}
 
 		public Form1()
@@ -22,7 +22,6 @@ namespace FractalPlayground
 			InitializeComponent();
 
 			FractalWork.SetFinishedCallback(Callback);
-
 		}
 	}
 }
