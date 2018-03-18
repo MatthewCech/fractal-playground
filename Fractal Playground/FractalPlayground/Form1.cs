@@ -12,16 +12,48 @@ namespace FractalPlayground
 {
 	public partial class Form1 : Form
 	{
-		public void Callback(ulong size, int[] characters)
+		Bitmap Image;
+
+		public void Callback()
 		{
-			Text = "what is this???????";
+			Invoke(new MethodInvoker(() => {
+				unsafe
+				{
+					//Image = new Bitmap(1920, 1080, sizeof(uint) * 1920, System.Drawing.Imaging.PixelFormat.Format32bppArgb, new IntPtr(FractalWork.GetBuffer()));
+					Text = "Done";
+					Image.Save("yeah.png");
+				}
+			}));
 		}
 
 		public Form1()
 		{
 			InitializeComponent();
 
+			FractalWork.SetBufferSize(1920, 1080);
 			FractalWork.SetFinishedCallback(Callback);
+
+			unsafe
+			{
+				Image = new Bitmap(1920, 1080, sizeof(uint) * 1920, System.Drawing.Imaging.PixelFormat.Format32bppArgb, new IntPtr(FractalWork.GetBuffer()));
+			}
+			outputPanel.BackgroundImage = Image;
+			outputPanel.BackgroundImageLayout = ImageLayout.Zoom;
+
+			Invalidate();
+
+			FractalWork.Start();
+			refreshTimer.Start();
+		}
+
+		private void refreshTimer_Tick(object sender, EventArgs e)
+		{
+			outputPanel.Invalidate();
+		}
+
+		private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			FractalWork.Abort();
 		}
 	}
 }
