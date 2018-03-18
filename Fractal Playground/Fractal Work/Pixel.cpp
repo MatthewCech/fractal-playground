@@ -1,42 +1,42 @@
 #include "Pixel.h"
 #include <cmath>
 
-Pixel::Pixel(uint color)
+Color::Color(uint color)
 {
 	*reinterpret_cast<uint*>(&A) = color;
 }
 
-Pixel::Pixel(byte r, byte g, byte b, byte a): A(a), R(r), G(g), B(b) {}
+Color::Color(byte r, byte g, byte b, byte a): A(a), R(r), G(g), B(b) {}
 
-Pixel::operator uint&()
+Color::operator uint&()
 {
 	return *reinterpret_cast<uint*>(&A);
 }
 
-Pixel::operator uint() const
+Color::operator uint() const
 {
 	return *reinterpret_cast<const uint*>(&A);
 }
 
-Pixel Pixel::operator*(const Pixel& rhs) const
+Color Color::operator*(const Color& rhs) const
 {
-	Pixel p(*this);
+	Color p(*this);
 	return p *= rhs;
 }
 
-Pixel Pixel::operator+(const Pixel& rhs) const
+Color Color::operator+(const Color& rhs) const
 {
-	Pixel p(*this);
+	Color p(*this);
 	return p += rhs;
 }
 
-Pixel Pixel::operator-(const Pixel& rhs) const
+Color Color::operator-(const Color& rhs) const
 {
-	Pixel p(*this);
+	Color p(*this);
 	return p -= rhs;
 }
 
-Pixel& Pixel::operator*=(const Pixel& rhs)
+Color& Color::operator*=(const Color& rhs)
 {
 	A = static_cast<byte>(std::roundf((A / 255.0f) * (rhs.A / 255.0f)));
 	R = static_cast<byte>(std::roundf((R / 255.0f) * (rhs.R / 255.0f)));
@@ -46,7 +46,7 @@ Pixel& Pixel::operator*=(const Pixel& rhs)
 	return *this;
 }
 
-Pixel& Pixel::operator+=(const Pixel& rhs)
+Color& Color::operator+=(const Color& rhs)
 {
 	short a = A + static_cast<short>(rhs.A);
 	A = static_cast<byte>(a > 255 ? 255 : a);
@@ -63,7 +63,7 @@ Pixel& Pixel::operator+=(const Pixel& rhs)
 	return *this;
 }
 
-Pixel& Pixel::operator-=(const Pixel& rhs)
+Color& Color::operator-=(const Color& rhs)
 {
 	short a = A - static_cast<short>(rhs.A);
 	A = static_cast<byte>(a < 0 ? 0 : a);
@@ -80,33 +80,33 @@ Pixel& Pixel::operator-=(const Pixel& rhs)
 	return *this;
 }
 
-Pixel Pixel::operator*(const uint & rhs) const
+Color Color::operator*(const uint & rhs) const
 {
-	return *this * Pixel(rhs);
+	return *this * Color(rhs);
 }
 
-Pixel Pixel::operator+(const uint & rhs) const
+Color Color::operator+(const uint & rhs) const
 {
-	return *this + Pixel(rhs);
+	return *this + Color(rhs);
 }
 
-Pixel Pixel::operator-(const uint & rhs) const
+Color Color::operator-(const uint & rhs) const
 {
-	return *this - Pixel(rhs);
+	return *this - Color(rhs);
 }
 
-Pixel & Pixel::operator*=(const uint & rhs)
+Color & Color::operator*=(const uint & rhs)
 {
-	return *this *= Pixel(rhs);
+	return *this *= Color(rhs);
 }
 
-Pixel & Pixel::operator+=(const uint & rhs)
+Color & Color::operator+=(const uint & rhs)
 {
-	return *this += Pixel(rhs);
+	return *this += Color(rhs);
 }
 
-Pixel & Pixel::operator-=(const uint & rhs)
+Color & Color::operator-=(const uint & rhs)
 {
-	return *this -= Pixel(rhs);
+	return *this -= Color(rhs);
 }
 

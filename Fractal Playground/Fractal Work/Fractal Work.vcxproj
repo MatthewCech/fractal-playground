@@ -79,6 +79,7 @@
     <ClInclude Include="FractalFunctions.h" />
     <ClInclude Include="FractalWorks.h" />
     <ClInclude Include="Pixel.h" />
+    <ClInclude Include="Point.h" />
     <ClInclude Include="Types.h" />
   </ItemGroup>
   <ItemGroup>

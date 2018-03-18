@@ -4,6 +4,7 @@
 #include <vector>
 #include "Types.h"
 #include "Pixel.h"
+#include "Point.h"
 
 
 typedef void(*Callback)();
@@ -16,16 +17,16 @@ public:
 
 	uint Width;
 	uint Height;
-	std::vector<Pixel> Buffer;
+	std::vector<Color> Buffer;
 	bool Run;
 
 
 	Fractal(uint width, uint height);
 
 	void Seed(uint seed);
-	void Iterate(uint numPoints);
+	void Iterate(uint numPoints, Color color);
 
-	Pixel* operator[](uint y);
+	Color* operator[](uint y);
 
 private:
 	uint LastSeed;

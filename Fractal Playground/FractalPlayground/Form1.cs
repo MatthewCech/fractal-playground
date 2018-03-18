@@ -31,20 +31,19 @@ namespace FractalPlayground
 		{
 			InitializeComponent();
 
-			FractalWork.SetBufferSize(1920, 1080);
+			int width = 3840;
+			int height = 2160;
+
+			FractalWork.SetBufferSize((uint)width, (uint)height);
 			FractalWork.SetFinishedCallback(Callback);
 
 			unsafe
 			{
-				Image = new Bitmap(1920, 1080, sizeof(uint) * 1920, System.Drawing.Imaging.PixelFormat.Format32bppArgb, new IntPtr(FractalWork.GetBuffer()));
+				Image = new Bitmap(width, height, sizeof(uint) * width, System.Drawing.Imaging.PixelFormat.Format32bppArgb, new IntPtr(FractalWork.GetBuffer()));
 			}
 			outputPanel.BackgroundImage = Image;
 			outputPanel.BackgroundImageLayout = ImageLayout.Zoom;
-
-			Invalidate();
-
-			FractalWork.Start();
-			refreshTimer.Start();
+			
 		}
 
 		private void refreshTimer_Tick(object sender, EventArgs e)
@@ -55,6 +54,13 @@ namespace FractalPlayground
 		private void Form1_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			FractalWork.Abort();
+		}
+
+		private void Form1_Load(object sender, EventArgs e)
+		{ 
+			
+			FractalWork.Start();
+			refreshTimer.Start();
 		}
 	}
 }
