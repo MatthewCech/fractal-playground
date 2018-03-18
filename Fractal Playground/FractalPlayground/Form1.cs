@@ -19,9 +19,10 @@ namespace FractalPlayground
 			Invoke(new MethodInvoker(() => {
 				unsafe
 				{
-					//Image = new Bitmap(1920, 1080, sizeof(uint) * 1920, System.Drawing.Imaging.PixelFormat.Format32bppArgb, new IntPtr(FractalWork.GetBuffer()));
 					Text = "Done";
 					Image.Save("yeah.png");
+					refreshTimer.Stop();
+					outputPanel.Invalidate();
 				}
 			}));
 		}

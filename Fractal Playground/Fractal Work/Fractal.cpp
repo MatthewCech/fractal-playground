@@ -27,8 +27,8 @@ void Fractal::Iterate(uint numPoints)
 	{
 		(*this)[static_cast<uint>(y)][static_cast<uint>(x)] += 0x05FFFFFF;
 
-		x = std::fmod((x / (y)) + x + xorg, Width);
-		y = std::fmod((y / (x)) + y + yorg, Height);
+		x = std::fmod(((700 * x) / (x * x + y * y)) + x + xorg, Width);
+		y = std::fmod(((1600 * y) / (x * x + y * y)) + y + yorg, Height);
 
 	}
 
