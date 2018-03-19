@@ -23,13 +23,11 @@ public:
 
 	Fractal(uint width, uint height);
 
-	void Seed(uint seed);
 	void Iterate(uint numPoints, Color color);
 
 	Color* operator[](uint y);
 
 private:
-	uint LastSeed;
 	std::mt19937 RandomPointGenerator;
 	//there needs to be more than one of these for multi-threaded.
 	std::mt19937 RandomFunctionSelector;

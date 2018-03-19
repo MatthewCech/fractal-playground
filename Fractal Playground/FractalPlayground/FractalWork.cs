@@ -7,8 +7,7 @@ namespace FractalPlayground
 	unsafe public class FractalWork
 	{
 		public delegate void Callback();
-
-
+		
 		[DllImport("Fractal Work.dll")]
 		public static extern void SetBufferSize(uint width, uint height);
 

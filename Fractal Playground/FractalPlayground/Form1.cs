@@ -31,8 +31,8 @@ namespace FractalPlayground
 		{
 			InitializeComponent();
 
-			int width = 3840;
-			int height = 2160;
+			int width = 1920;
+			int height = 1080;
 
 			FractalWork.SetBufferSize((uint)width, (uint)height);
 			FractalWork.SetFinishedCallback(Callback);

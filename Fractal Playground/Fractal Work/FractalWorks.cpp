@@ -21,13 +21,12 @@ FWAPI uint* GetBuffer()
 
 static Color colors[] =
 {
-	Color(0x01010000),
-	Color(0x01000100),
-	Color(0x01010001),
-	Color(0x01000001),
-	Color(0x01000101),
-	Color(0x01010101),
-	Color(0x01000000),
+	Color(0x330000FF),
+	Color(0x3300FF00),
+	Color(0x3300FFFF),
+	Color(0x33FF0000),
+	Color(0x33FF00FF),
+	Color(0x33FFFF00),
 };
 
 static void yes()
@@ -42,7 +41,6 @@ static void yes()
 
 FWAPI void Start() 
 {
-	Frac.Seed(static_cast<uint>(time(0)));
 	Frac.Run = true;
 
 	//bad multi-threading. works, but race conditions are everywhere.
