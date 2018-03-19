@@ -40,7 +40,7 @@ static void yes()
 		Fractal::FinishedCallback();
 }
 
-FWAPI void Start()
+FWAPI void Start() 
 {
 	Frac.Seed(static_cast<uint>(time(0)));
 	Frac.Run = true;
