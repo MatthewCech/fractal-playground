@@ -24,13 +24,13 @@
     <ClInclude Include="Types.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Pixel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="FractalFunctions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Point.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -38,13 +38,13 @@
     <ClCompile Include="FractalWorks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Pixel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Fractal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Types.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Color.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,23 +1,21 @@
-#include "Pixel.h"
+#include "Color.h"
 #include <cmath>
 
 Color::Color(uint color)
-	: A(static_cast<byte>((color & 0xFF000000) >> 24))
+	/*: A(static_cast<byte>((color & 0xFF000000) >> 24))
 	, R(static_cast<byte>((color & 0x00FF0000) >> 16))
 	, G(static_cast<byte>((color & 0x0000FF00) >> 8))
-	, B(static_cast<byte>((color & 0x000000FF)))
-{}
+	, B(static_cast<byte>((color & 0x000000FF)))*/
+{
+	*reinterpret_cast<uint*>(&B) = color;
+}
 
 Color::Color(byte r, byte g, byte b, byte a): A(a), R(r), G(g), B(b) {}
 
 
 Color::operator uint() const
 {
-	uint ret = B;
-	ret |= static_cast<uint>(G) << 8;
-	ret |= static_cast<uint>(R) << 16;
-	ret |= static_cast<uint>(A) << 24;
-	return ret;
+	return *reinterpret_cast<const uint*>(&B);
 }
 
 Color Color::operator*(const Color& rhs) const

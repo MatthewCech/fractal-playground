@@ -3,7 +3,7 @@
 #include <random>
 #include <vector>
 #include "Types.h"
-#include "Pixel.h"
+#include "Color.h"
 #include "Point.h"
 
 

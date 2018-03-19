@@ -19,8 +19,11 @@ void Fractal::Iterate(uint numPoints, Color color)
 		Color& col = (*this)[static_cast<uint>(y)][static_cast<uint>(x)];
 		col += color;
 
-		double x1 = std::fmod(((1000000 * x) / (x * x + y * y)) + x, Width);
-		double y1 = std::fmod(((1000910 * y) / (x * x + y * y)) + y, Height);
+		double x1 = std::fmod(((1000000 * x) / (color.R * color.R + color.G * color.G + color.B * color.B + x * x + y * y)) + x, Width);
+		double y1 = std::fmod(((1000910 * y) / (color.R * color.R + color.G * color.G + color.B * color.B + x * x + y * y)) + y, Height);
+		color.R = static_cast<byte>(std::fmod(((300.0 * (color.R + 25)) / (color.R * color.R + color.G * color.G + color.B * color.B + x * x + y * y)) + color.R, 255));
+		color.G = static_cast<byte>(std::fmod(((300.0 * (color.G + 25)) / (color.R * color.R + color.G * color.G + color.B * color.B + x * x + y * y)) + color.G, 255));
+		color.B = static_cast<byte>(std::fmod(((300.0 * (color.B + 25)) / (color.R * color.R + color.G * color.G + color.B * color.B + x * x + y * y)) + color.B, 255));
 
 		double x2 = std::fmod(10 * sin(x) + x, Width);
 		double y2 = std::fmod(12 * sin(y) + y, Height);

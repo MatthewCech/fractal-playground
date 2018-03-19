@@ -21,12 +21,12 @@ FWAPI uint* GetBuffer()
 
 static Color colors[] =
 {
-	Color(0x330000FF),
-	Color(0x3300FF00),
-	Color(0x3300FFFF),
-	Color(0x33FF0000),
-	Color(0x33FF00FF),
-	Color(0x33FFFF00),
+	Color(0x110000FF),
+	Color(0x1100FF00),
+	Color(0x1100FFFF),
+	Color(0x11FF0000),
+	Color(0x11FF00FF),
+	Color(0x11FFFF00),
 };
 
 static void yes()
