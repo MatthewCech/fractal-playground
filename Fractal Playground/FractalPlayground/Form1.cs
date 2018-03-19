@@ -13,6 +13,7 @@ namespace FractalPlayground
 	public partial class Form1 : Form
 	{
 		Bitmap Image;
+		FractalWork.Callback cb;
 
 		public void Callback()
 		{
@@ -35,7 +36,8 @@ namespace FractalPlayground
 			int height = 1080;
 
 			FractalWork.SetBufferSize((uint)width, (uint)height);
-			FractalWork.SetFinishedCallback(Callback);
+			cb = Callback;
+			FractalWork.SetFinishedCallback(cb);
 
 			unsafe
 			{
@@ -43,7 +45,6 @@ namespace FractalPlayground
 			}
 			outputPanel.BackgroundImage = Image;
 			outputPanel.BackgroundImageLayout = ImageLayout.Zoom;
-			
 		}
 
 		private void refreshTimer_Tick(object sender, EventArgs e)
