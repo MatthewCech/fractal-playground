@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FractalWorks.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="Fractal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -31,6 +28,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Color.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FractalWorks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
