@@ -28,9 +28,14 @@ void Fractal::Iterate(uint numPoints, Color color)
 		double x2 = std::fmod(10 * sin(x) + x, Width);
 		double y2 = std::fmod(12 * sin(y) + y, Height);
 
-		double t = 1 / 3;
+		double t = 0.2;
 		x = (1 - t) *  x1 + t * x2;
 		y = (1 - t) *  y1 + t * y2;
+
+		if (x < 0)
+			x += Width;
+		if (y < 0)
+			y += Height;
 	}
 }
 

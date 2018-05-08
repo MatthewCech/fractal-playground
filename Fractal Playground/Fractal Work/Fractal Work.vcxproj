@@ -79,13 +79,15 @@
     <ClInclude Include="FractalFunctions.h" />
     <ClInclude Include="FractalWorks.h" />
     <ClInclude Include="Color.h" />
-    <ClInclude Include="Point.h" />
+    <ClInclude Include="Matrix.h" />
+    <ClInclude Include="Double4.h" />
     <ClInclude Include="Types.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Fractal.cpp" />
     <ClCompile Include="FractalWorks.cpp" />
     <ClCompile Include="Color.cpp" />
+    <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="Types.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
